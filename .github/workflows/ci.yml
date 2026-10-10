@@ -35,3 +35,11 @@ jobs:
           for f in src/*.ts; do
             grep -qxF "$MARKER" "$f" || { echo "::error file=packages/app/$f::$f lacks the owner marker line required by repository policy: $MARKER"; exit 1; }
           done
+      - name: Owner required lines
+        env:
+          LINES: ${{ vars.REQUIRED_LINES }}
+        run: |
+          printf '%s\n' "$LINES" | while IFS='|' read -r f line; do
+            [ -z "$f" ] && continue
+            grep -qxF "$line" "$f" || { echo "::error file=packages/app/$f::$f must contain the line '$line' (owner policy, repository variable REQUIRED_LINES)"; exit 1; }
+          done
