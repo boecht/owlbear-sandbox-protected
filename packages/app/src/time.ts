@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 // owner-reviewed: clock-2026
+// clock-owner: probe
 
 export function localHour(iso: string): string {
   const date = new Date(iso);
