@@ -19,3 +19,9 @@ test("clamp bounds a value", () => {
   assert.equal(clamp(-3, 0, 10), 0);
   assert.equal(clamp(42, 0, 10), 10);
 });
+
+test("clamp swaps reversed bounds", () => {
+  assert.equal(clamp(5, 10, 0), 5);
+  assert.equal(clamp(-3, 10, 0), 0);
+  assert.equal(clamp(42, 10, 0), 10);
+});
