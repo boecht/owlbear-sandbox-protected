@@ -11,3 +11,14 @@ export function sum(values: number[]): number {
 export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
+
+/** Returns -1, 0 or 1. */
+export function sign(value: number): number {
+  if (value < 0) {
+    return -1;
+  }
+  if (value > 0) {
+    return 1;
+  }
+  return 0;
+}
