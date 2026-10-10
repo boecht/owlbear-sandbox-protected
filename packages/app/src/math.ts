@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// owner-reviewed: clock-2026
 export function add(a: number, b: number): number {
   return a + b;
 }
