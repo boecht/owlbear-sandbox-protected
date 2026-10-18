@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { add, clamp, sign, sum } from "../src/math.ts";
+import { absDiff, add, clamp, sign, sum } from "../src/math.ts";
 
 test("add sums two numbers", () => {
   assert.equal(add(2, 3), 5);
@@ -26,4 +26,9 @@ test("sign returns the sign of a number", () => {
   assert.equal(sign(0), 0);
   assert.equal(sign(7), 1);
   assert.equal(sign(0.25), 1);
+});
+
+test("absDiff returns the absolute difference in either order", () => {
+  assert.equal(absDiff(3, 7), 4);
+  assert.equal(absDiff(7, 3), 4);
 });
